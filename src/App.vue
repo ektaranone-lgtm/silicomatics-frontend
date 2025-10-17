@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import logoUrl from '/logo-modern-v7.svg?url'
 
 const isDropdownOpen = ref(false)
 const dropdownRef = ref(null)
@@ -31,7 +32,7 @@ onUnmounted(() => {
       <div class="container">
         <div class="nav-content">
           <div class="brand">
-            <img src="/logo-modern-v7.svg" alt="Silico Informatics Logo" />
+            <img :src="logoUrl" alt="Silico Informatics Logo" />
           </div>
           <div class="nav-right">
             <ul class="nav-links">

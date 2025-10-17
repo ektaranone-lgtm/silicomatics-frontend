@@ -2,13 +2,20 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 
-// Handle GitHub Pages SPA redirect
-const redirect = sessionStorage.redirect
-delete sessionStorage.redirect
-if (redirect && redirect !== location.href) {
-  router.replace(redirect.split('/silicomatics-frontend')[1] || '/')
-}
+// Debug logging for GitHub Pages
+console.log('App starting...', {
+  baseUrl: import.meta.env.BASE_URL,
+  mode: import.meta.env.MODE
+})
 
 const app = createApp(App)
+
 app.use(router)
-app.mount('#app')
+
+// Wait for router to be ready before mounting
+router.isReady().then(() => {
+  console.log('Router ready, mounting app...')
+  app.mount('#app')
+}).catch(err => {
+  console.error('Router error:', err)
+})
