@@ -9,8 +9,6 @@
         <p class="hero-subtitle">Your trusted partner in data analytics and digital transformation</p>
         <div class="hero-description">
           <p>Empowering businesses through innovative AI solutions and measurable results</p>
-          <p>Previous logo:</p>
-          <img :src="tempUrl" alt="Temp Logo" />
           <router-link to="/login" class="cta-button">Get Started</router-link>
         </div>
       </div>
@@ -94,7 +92,6 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import tempUrl from '/logo-full.png?url'
 
 // currently selected industry key or null
 const selected = ref<string | null>(null)
